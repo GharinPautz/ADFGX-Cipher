@@ -14,13 +14,24 @@ public class Main {
         System.out.println("Polybius Square");
         System.out.println(pbSquare);
 
-        EncodePlainText encode = new EncodePlainText(pbSquare, message);
-        System.out.println(encode);
+        EncodedPlainText encodedPlainText = new EncodedPlainText(pbSquare, message);
+        System.out.println(encodedPlainText);
+
+        String key2 = getMatrixKey();
+        KeywordMatrix keywordMatrix = new KeywordMatrix(key2, encodedPlainText);
+        System.out.println(keywordMatrix);
     }
 
     public static String getPolybiusSquareKey() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a keyword to create the Polybius Square: ");
+        String key = scanner.nextLine();
+        return key;
+    }
+
+    public static String getMatrixKey(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a keyword to create the keyword matrix: ");
         String key = scanner.nextLine();
         return key;
     }

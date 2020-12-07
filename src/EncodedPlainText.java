@@ -1,12 +1,9 @@
-import java.security.KeyPair;
-import java.security.cert.X509Certificate;
-
-public class EncodePlainText {
+public class EncodedPlainText {
     public static PlainText plainText;
     public static PolybiusSquare pbSquare;
     public static String cipherText;
 
-    public EncodePlainText(PolybiusSquare pbSquare, PlainText plainText) {
+    public EncodedPlainText(PolybiusSquare pbSquare, PlainText plainText) {
         this.plainText = plainText;
         this.pbSquare = pbSquare;
         this.cipherText = getCipherText();
@@ -18,15 +15,13 @@ public class EncodePlainText {
         for (char c: plainTextStr.toCharArray()) {
             // find position of c in pbSquare
             String position = findCharPosition(c);
-            System.out.println("position: " + position);
+
             // convert position to ADFGX pair
             String ADFGXPosition = convertPositionPair(position);
-            System.out.println("ADFGX position: " + ADFGXPosition);
+
             // append pair to cipherText string
             cipherText += ADFGXPosition;
-            System.out.println("cipherText so far: " + cipherText);
         }
-        System.out.println("cipherText: " + cipherText);
         return cipherText;
     }
 
@@ -53,9 +48,6 @@ public class EncodePlainText {
     public static String convertPositionPair(String pair) {
         char firstLetterIndex = pair.charAt(0);
         char secondLetterIndex = pair.charAt(1);
-
-        System.out.println("firstLetterIndex: " + firstLetterIndex);
-        System.out.println("secondLetterIndex: " + secondLetterIndex);
 
         String returnStr = "";
 
