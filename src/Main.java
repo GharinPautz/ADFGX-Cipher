@@ -20,6 +20,9 @@ public class Main {
         String key2 = getMatrixKey();
         KeywordMatrix keywordMatrix = new KeywordMatrix(key2, encodedPlainText);
         System.out.println(keywordMatrix);
+
+        SortedKeywordMatrix sortedKeywordMatrix = new SortedKeywordMatrix(key2, keywordMatrix);
+        System.out.println(sortedKeywordMatrix);
     }
 
     public static String getPolybiusSquareKey() {

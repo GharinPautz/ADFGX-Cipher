@@ -35,7 +35,6 @@ public class PolybiusSquare {
         // remove spaces from key
         String text = key.replaceAll("\\s+", "");
         text = removeRepeatLetter(text);
-        System.out.println("text: " + text);
 
         // Get all available letters in the alphabet
         List<Character> list = new ArrayList<>();
@@ -56,8 +55,6 @@ public class PolybiusSquare {
             // remove letter from array list
             list.remove((Character)c);
         }
-
-        System.out.println("list - letters in key: " + list);
 
         char textLastLetter = text.charAt(text.length() - 1);
         char listStartingLetter = (char) ((int)(textLastLetter) + 1);

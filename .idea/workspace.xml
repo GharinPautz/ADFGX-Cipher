@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc9e36b1-bcb0-4eca-b303-b689c478d3ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/KeywordMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SortedKeywordMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EncodePlainText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EncodedPlainText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PolybiusSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PolybiusSquare.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607300555670</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="keyword matrix class created and completed">
+      <created>1607320383393</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607320383393</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +95,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed issues and can encode plain text with polybius square" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed issues and can encode plain text with polybius square" />
+    <MESSAGE value="keyword matrix class created and completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="keyword matrix class created and completed" />
   </component>
 </project>
