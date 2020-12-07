@@ -6,16 +6,16 @@ import java.util.*;
  * a 5x5 key for the encryption, which is generated from the plain text.
  */
 public class PolybiusSquare {
-    public PlainText plainText;
+    public String key;
     public char[][] square = new char[5][5];
 
     /**
      * Constructor for Polybius Square Object
      *
-     * @param plainText is the message we are encrypting
+     * @param key is the key we are using to create the Polybius Square
      */
-    public PolybiusSquare(PlainText plainText) {
-        this.plainText = plainText;
+    public PolybiusSquare(String key) {
+        this.key = key;
         this.square = generateSquare();
     }
 
@@ -32,8 +32,10 @@ public class PolybiusSquare {
      *                  v w x y z
      */
     public char[][] generateSquare() {
-        String text = plainText.stripSpaces();
+        // remove spaces from key
+        String text = key.replaceAll("\\s+", "");
         text = removeRepeatLetter(text);
+        System.out.println("text: " + text);
 
         // Get all available letters in the alphabet
         List<Character> list = new ArrayList<>();
@@ -55,10 +57,34 @@ public class PolybiusSquare {
             list.remove((Character)c);
         }
 
-        // for all the remaining letters in array list
-        // add letter to queue and remove from list
-        for (char c: list) {
-            ptQueue.add(c);
+        System.out.println("list - letters in key: " + list);
+
+        char textLastLetter = text.charAt(text.length() - 1);
+        char listStartingLetter = (char) ((int)(textLastLetter) + 1);
+
+        // increment letter while it does not exist in list
+        while(!list.contains(listStartingLetter)){
+            listStartingLetter = (char) ((int) (listStartingLetter) + 1);
+        }
+
+        // get index of starting letter in list
+        int listStartingLetterIndex = 0;
+        for (int index = 0; index < list.size(); index++) {
+            if(list.get(index) == listStartingLetter) {
+                listStartingLetterIndex = index;
+            }
+        }
+
+        // add remaining letters in array list
+        // start with next letter in alphabet after last letter of message
+        for(int i = listStartingLetterIndex; i <= list.size() - 1; i++){
+            ptQueue.add(list.get(i));
+        }
+
+        // add remaining letters in array list
+        // end with starting letter of previous loop
+        for(int c = 0; c < listStartingLetterIndex; c++){
+            ptQueue.add(list.get(c));
         }
 
         // row
@@ -109,4 +135,6 @@ public class PolybiusSquare {
 
         return squareStr;
     }
+
+
 }
