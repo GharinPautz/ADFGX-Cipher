@@ -1,27 +1,24 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.*;
 
 public class SortedKeywordMatrix {
     public String key;
     public KeywordMatrix keywordMatrix;
-    public char[][] sortedKeywordMatrix;
+    public String sortedKeywordMatrixStr;
 
     public SortedKeywordMatrix(String key, KeywordMatrix keywordMatrix){
         this.key = key;
         this.keywordMatrix = keywordMatrix;
-        this.sortedKeywordMatrix = sortKeywordMatrix();
+        this.sortedKeywordMatrixStr = sortKeywordMatrix();
     }
 
-    public char[][] sortKeywordMatrix() {
+    public String sortKeywordMatrix() {
         int numCols = key.length();
-        int numRows = (int) Math.ceil((keywordMatrix.encodedPlainText.length() * 2)/ numCols);
-        sortedKeywordMatrix = new char[numRows][numCols];
+        int numRows = (int) Math.ceil((double)keywordMatrix.encodedPlainText.length()/ numCols);
+
+        char[][] sortedMatrix = new char[numRows][numCols];
 
         // sort key
-        char [] tempArray = key.toCharArray();
-        Arrays.sort(tempArray);
-        System.out.println(tempArray);
+        char[] tempArray = key.toCharArray();
 
         // create arraylist of each column array
         // [[col 1],[col2],[col3]...]
@@ -35,26 +32,43 @@ public class SortedKeywordMatrix {
             }
             colsMatrix.add(colArray);
         }
-        System.out.println(colsMatrix);
 
-        // rearrange columns according to sorted key (tempArray)
+        // make hash map with letter in keyWord as the key, arrayList of chars at value
+        HashMap<Character, ArrayList<Character>> hmap = new HashMap<>();
 
-        return sortedKeywordMatrix;
-    }
-
-    public String toString() {
-        String matrixStr = "";
-        int numCols = key.length();
-        int numRows = (int) Math.ceil((keywordMatrix.encodedPlainText.length() * 2)/ numCols);
-
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < numCols; j++) {
-                matrixStr += sortedKeywordMatrix[i][j];
-                matrixStr += " ";
-            }
-            matrixStr += "\n";
+        for (int i = 0; i < numCols; i++) {
+            hmap.put(tempArray[i], colsMatrix.get(i));
         }
 
-        return matrixStr;
+        // rearrange columns according to sorted key (tempArray)
+        Arrays.sort(tempArray);
+
+        String sortedKeywordMatrixStr = "";
+
+        // go through the key values in the hash map
+        // these are sorted letters of the keyWord
+        for (char c: tempArray) {
+            // navigate through each letter in array list values and append to string
+            for (char d: hmap.get(c)) {
+                sortedKeywordMatrixStr += d;
+            }
+        }
+
+        // final string with encrypted message
+        return sortedKeywordMatrixStr;
+    }
+
+
+    public String toString() {
+
+        String finalStr = "";
+
+        for (char c: sortedKeywordMatrixStr.toCharArray()) {
+            if (c != '0') {
+                finalStr += c;
+            }
+        }
+
+        return finalStr;
     }
 }

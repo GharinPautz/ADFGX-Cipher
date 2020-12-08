@@ -5,14 +5,16 @@ public class KeywordMatrix {
 
     public KeywordMatrix(String key, EncodedPlainText encodedPlainText) {
         this.key = key;
-        this.encodedPlainText = encodedPlainText.toString();
+        this.encodedPlainText = encodedPlainText.cipherText;
         this.matrix = generateMatrix();
     }
 
     public char[][] generateMatrix() {
         int numCols = key.length();
-        int numRows = (int) Math.ceil((encodedPlainText.length() * 2)/ numCols);
-        matrix = new char[numRows][numCols];
+        int numRows = (int) Math.ceil((double)encodedPlainText.length() / numCols);
+
+        char[][] charMatrix = new char[numRows][numCols];
+
 
         int plainTextIndex = 0;
 
@@ -21,29 +23,45 @@ public class KeywordMatrix {
             // column
             for (int j = 0; j < numCols; j++) {
                 if (plainTextIndex < encodedPlainText.length()) {
-                    matrix[i][j] = encodedPlainText.charAt(plainTextIndex);
+                    charMatrix[i][j] = encodedPlainText.charAt(plainTextIndex);
                     plainTextIndex++;
-                } else {
-                    return matrix;
+                }
+                else {
+                    charMatrix[i][j] = '0';
                 }
             }
         }
-        return matrix;
+        return charMatrix;
     }
 
     public String toString() {
         String matrixStr = "";
+
+        String keyStr = "";
+
+        for (char c: key.toCharArray()) {
+            keyStr += c;
+            keyStr += " ";
+        }
+        keyStr += "\n";
+        for (char c: key.toCharArray()) {
+            keyStr += "__";
+        }
+        keyStr += "\n";
+
         int numCols = key.length();
-        int numRows = (int) Math.ceil((encodedPlainText.length() * 2)/ numCols);
+        int numRows = (int) Math.ceil((double)encodedPlainText.length() / numCols);
 
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                matrixStr += matrix[i][j];
-                matrixStr += " ";
+                if (matrix[i][j] != '0') {
+                    matrixStr += matrix[i][j];
+                    matrixStr += " ";
+                }
             }
             matrixStr += "\n";
         }
 
-        return matrixStr;
+        return keyStr + matrixStr;
     }
 }

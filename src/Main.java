@@ -15,27 +15,28 @@ public class Main {
         System.out.println(pbSquare);
 
         EncodedPlainText encodedPlainText = new EncodedPlainText(pbSquare, message);
-        System.out.println(encodedPlainText);
 
         String key2 = getMatrixKey();
         KeywordMatrix keywordMatrix = new KeywordMatrix(key2, encodedPlainText);
         System.out.println(keywordMatrix);
 
+        System.out.println("Encryped message");
         SortedKeywordMatrix sortedKeywordMatrix = new SortedKeywordMatrix(key2, keywordMatrix);
         System.out.println(sortedKeywordMatrix);
     }
 
     public static String getPolybiusSquareKey() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a keyword to create the Polybius Square: ");
+        System.out.print("Enter a keyword to create the Polybius Square: ");
         String key = scanner.nextLine();
         return key;
     }
 
     public static String getMatrixKey(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a keyword to create the keyword matrix: ");
+        System.out.print("Enter a keyword to create the keyword matrix: ");
         String key = scanner.nextLine();
+        System.out.println();
         return key;
     }
 }

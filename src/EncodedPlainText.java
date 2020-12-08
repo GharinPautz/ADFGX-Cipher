@@ -1,7 +1,7 @@
 public class EncodedPlainText {
-    public static PlainText plainText;
-    public static PolybiusSquare pbSquare;
-    public static String cipherText;
+    public PlainText plainText;
+    public PolybiusSquare pbSquare;
+    public String cipherText;
 
     public EncodedPlainText(PolybiusSquare pbSquare, PlainText plainText) {
         this.plainText = plainText;
@@ -9,7 +9,7 @@ public class EncodedPlainText {
         this.cipherText = getCipherText();
     }
 
-    public static String getCipherText() {
+    public String getCipherText() {
         String cipherText = "";
         String plainTextStr = plainText.toString().replaceAll("\\s+", "");
         for (char c: plainTextStr.toCharArray()) {
@@ -25,7 +25,7 @@ public class EncodedPlainText {
         return cipherText;
     }
 
-    public static String findCharPosition(char c) {
+    public String findCharPosition(char c) {
         String returnStr = "";
         for(int i = 0; i < 5; i++) {
             for(int j = 0; j < 5; j++) {

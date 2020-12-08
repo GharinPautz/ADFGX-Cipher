@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc9e36b1-bcb0-4eca-b303-b689c478d3ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SortedKeywordMatrix.java" afterDir="false" />
+    <list default="true" id="e0f4d05e-618b-494a-ae99-2fe8496d243a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EncodedPlainText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EncodedPlainText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeywordMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeywordMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PolybiusSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PolybiusSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortedKeywordMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedKeywordMatrix.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lD8639vXp0JhJcTpCe2b64NVd0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -59,7 +63,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cc9e36b1-bcb0-4eca-b303-b689c478d3ce" name="Default Changelist" comment="" />
+      <changelist id="e0f4d05e-618b-494a-ae99-2fe8496d243a" name="Default Changelist" comment="" />
       <created>1607120122818</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -87,7 +91,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

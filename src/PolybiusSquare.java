@@ -49,7 +49,7 @@ public class PolybiusSquare {
 
         // for each letter in the message
         // add the letter to the queue and remove from array list
-        for (char c: text.toString().toCharArray()) {
+        for (char c: text.toCharArray()) {
             ptQueue.add(c);
 
             // remove letter from array list
