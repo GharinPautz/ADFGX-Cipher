@@ -3,15 +3,16 @@ import java.util.*;
 public class SortedKeywordMatrix {
     public String key;
     public KeywordMatrix keywordMatrix;
-    public String sortedKeywordMatrixStr;
+    public char[][] sortedKeywordMatrix;
+    public String encryptedMessage;
 
     public SortedKeywordMatrix(String key, KeywordMatrix keywordMatrix){
         this.key = key;
         this.keywordMatrix = keywordMatrix;
-        this.sortedKeywordMatrixStr = sortKeywordMatrix();
+        this.sortedKeywordMatrix = sortKeywordMatrix();
     }
 
-    public String sortKeywordMatrix() {
+    public char[][] sortKeywordMatrix() {
         int numCols = key.length();
         int numRows = (int) Math.ceil((double)keywordMatrix.encodedPlainText.length()/ numCols);
 
@@ -54,11 +55,33 @@ public class SortedKeywordMatrix {
             }
         }
 
-        // final string with encrypted message
-        return sortedKeywordMatrixStr;
+        int tempIndex = 0;
+
+        for (int row = 0; row < numRows; row++) {
+
+            for (int col = 0; col < numCols; col++) {
+                if (tempIndex < sortedKeywordMatrixStr.length()) {
+                    sortedMatrix[col][row] = sortedKeywordMatrixStr.charAt(tempIndex);
+                    tempIndex++;
+                }
+            }
+        }
+
+        String finalStr = "";
+        char[] finalChars = sortedKeywordMatrixStr.toCharArray();
+
+        for (char c: finalChars) {
+            if (c != '0') {
+                finalStr += c;
+            }
+        }
+        encryptedMessage = finalStr;
+
+        // final matrix with encrypted message
+        return sortedMatrix;
     }
 
-
+/*
     public String toString() {
 
         String finalStr = "";
@@ -70,5 +93,43 @@ public class SortedKeywordMatrix {
         }
 
         return finalStr;
+    }
+
+ */
+
+    @Override
+    public String toString() {
+        String str = "";
+
+        int numCols = key.length();
+        int numRows = (int) Math.ceil((double)keywordMatrix.encodedPlainText.length()/ numCols);
+
+        char[] sortedKey = key.toCharArray();
+        Arrays.sort(sortedKey);
+
+        for (char c: sortedKey) {
+            str += c;
+            str += " ";
+        }
+        str += "\n";
+        for (char c: sortedKey) {
+            str += "__";
+        }
+        str += "\n";
+
+        for (int row = 0; row < numRows; row++) {
+
+            for (int col = 0; col < numCols; col++) {
+                if (sortedKeywordMatrix[row][col] != '0') {
+                    str = str + sortedKeywordMatrix[row][col] + " ";
+                }
+                else {
+                    str += "  ";
+                }
+            }
+            str += "\n";
+        }
+
+        return str;
     }
 }

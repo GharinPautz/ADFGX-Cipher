@@ -15,14 +15,19 @@ public class Main {
         System.out.println(pbSquare);
 
         EncodedPlainText encodedPlainText = new EncodedPlainText(pbSquare, message);
+        System.out.println(encodedPlainText);
+        System.out.println();
 
         String key2 = getMatrixKey();
         KeywordMatrix keywordMatrix = new KeywordMatrix(key2, encodedPlainText);
         System.out.println(keywordMatrix);
 
-        System.out.println("Encryped message");
+        System.out.println("Rearranged Matrix");
         SortedKeywordMatrix sortedKeywordMatrix = new SortedKeywordMatrix(key2, keywordMatrix);
         System.out.println(sortedKeywordMatrix);
+
+        System.out.println("Encrypted Message");
+        System.out.println(sortedKeywordMatrix.encryptedMessage);
     }
 
     public static String getPolybiusSquareKey() {
