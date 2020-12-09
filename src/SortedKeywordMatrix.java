@@ -57,11 +57,11 @@ public class SortedKeywordMatrix {
 
         int tempIndex = 0;
 
-        for (int row = 0; row < numRows; row++) {
+        for (int col = 0; col < numCols; col++) {
 
-            for (int col = 0; col < numCols; col++) {
+            for (int row = 0; row < numRows; row++) {
                 if (tempIndex < sortedKeywordMatrixStr.length()) {
-                    sortedMatrix[col][row] = sortedKeywordMatrixStr.charAt(tempIndex);
+                    sortedMatrix[row][col] = sortedKeywordMatrixStr.charAt(tempIndex);
                     tempIndex++;
                 }
             }
